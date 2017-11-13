@@ -81,6 +81,7 @@ ares_parse_soa_reply(const unsigned char *abuf, int alen,
   /* skip rr_type, rr_class, rr_ttl, rr_rdlen */
   if (aptr + RRFIXEDSZ > abuf + alen)
     goto failed;
+  soa->ttl = DNS_RR_TTL(aptr);
   aptr += RRFIXEDSZ;
 
   /* allocate result struct */

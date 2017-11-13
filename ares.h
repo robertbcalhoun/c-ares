@@ -511,18 +511,21 @@ struct ares_srv_reply {
   unsigned short          priority;
   unsigned short          weight;
   unsigned short          port;
+  int                     ttl;
 };
 
 struct ares_mx_reply {
   struct ares_mx_reply   *next;
   char                   *host;
   unsigned short          priority;
+  int                     ttl;
 };
 
 struct ares_txt_reply {
   struct ares_txt_reply  *next;
   unsigned char          *txt;
   size_t                  length;  /* length excludes null termination */
+  int                     ttl;
 };
 
 /* NOTE: This structure is a superset of ares_txt_reply
@@ -544,6 +547,7 @@ struct ares_naptr_reply {
   char                    *replacement;
   unsigned short           order;
   unsigned short           preference;
+  int                      ttl;
 };
 
 struct ares_soa_reply {
@@ -554,6 +558,7 @@ struct ares_soa_reply {
   unsigned int retry;
   unsigned int expire;
   unsigned int minttl;
+  int          ttl;
 };
 
 /*
